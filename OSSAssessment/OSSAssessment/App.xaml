@@ -1,0 +1,17 @@
+﻿<Application x:Class="OSSAssessment.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:OSSAssessment"
+             StartupUri="MainWindow.xaml"
+             Startup="Application_Start"
+             Exit="Application_Exit">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/TreeViewStyle.xaml" />
+                <ResourceDictionary Source="/Styles/GridColumnHeader.xaml" />
+                <ResourceDictionary Source="/Styles/ButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
