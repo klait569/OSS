@@ -1,4 +1,5 @@
 ﻿using OSSAssessment.DataLayer;
+using OSSAssessment.Services;
 using OSSAssessment.Windows;
 using System;
 using System.Collections.ObjectModel;
@@ -17,6 +18,20 @@ namespace OSSAssessment.ViewModels
         private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             OnPropertyChanged("");
+        }
+
+        private StructureService structureService;
+
+        public StructureService StructureService
+        {
+            get
+            {
+                if (structureService == null)
+                {
+                    structureService = new StructureService();
+                }
+                return structureService;
+            }
         }
 
         public ObservableCollection<Role> Roles
@@ -94,8 +109,7 @@ namespace OSSAssessment.ViewModels
 
         private void DeleteRole(int id)
         {
-            var role = Roles.Select(x => x).Where(x => x.Id == id).FirstOrDefault();
-            Roles.Remove(role);
+            StructureService.RemoveRole(id);
         }
 
         private int GetNewRoleId()

@@ -1,5 +1,4 @@
 ﻿using OSSAssessment.DataLayer;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -80,6 +79,22 @@ namespace OSSAssessment.Services
             return unassignedPersons.ToList();
         }
 
+        internal void UpdatePositionsWithRole(int roleId)
+        {
+            List<Position> positionsWithRole = GetPositionsWithRole(roleId);
+            foreach (var item in positionsWithRole)
+            {
+                item.UpdateUi();
+            }
+        }
+
+        private List<Position> GetPositionsWithRole(int roleId)
+        {
+            var personsWithRole = GlobalDataModel.Instance.Model.Persons.Where(x => x.RoleId == roleId).Select(x => x.Id).ToList();
+            var positionsWithRole = GetAllPositions().Where(x => personsWithRole.Contains(x.PersonId)).ToList();
+            return positionsWithRole;
+        }
+
         internal void RemovePerson(int id)
         {
             var person = GlobalDataModel.Instance.Model.Persons.Select(x => x).Where(x => x.Id == id).FirstOrDefault();
@@ -90,6 +105,24 @@ namespace OSSAssessment.Services
                 {
                     item.PersonId = 0;
                 }
+            }
+        }
+
+        internal void RemoveRole(int roleId)
+        {
+            List<Position> positionsWithRole = GetPositionsWithRole(roleId);
+            var role = GlobalDataModel.Instance.Model.Roles.Select(x => x).Where(x => x.Id == roleId).FirstOrDefault();
+            GlobalDataModel.Instance.Model.Roles.Remove(role);
+            foreach (var item in GlobalDataModel.Instance.Model.Persons)
+            {
+                if (item.RoleId == roleId)
+                {
+                    item.RoleId = 0;
+                }
+            }
+            foreach (var item in positionsWithRole)
+            {
+                item.UpdateUi();
             }
         }
 

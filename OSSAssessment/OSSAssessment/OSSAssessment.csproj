@@ -92,7 +92,6 @@
     <Compile Include="MVVMUtils\ActionCommand.cs" />
     <Compile Include="MVVMUtils\BindableBase.cs" />
     <Compile Include="MVVMUtils\InverseBooleanConverter.cs" />
-    <Compile Include="MVVMUtils\FocusExtension.cs" />
     <Compile Include="MVVMUtils\BoolToColorConverter.cs" />
     <Compile Include="MVVMUtils\StartButtonTextConverter.cs" />
     <Compile Include="Services\DeviceService.cs" />

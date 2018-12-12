@@ -97,12 +97,7 @@ namespace OSSAssessment.ViewModels
                 var role = GlobalDataModel.Instance.Model.Roles.Select(x => x).Where(x => x.Id == roleId).FirstOrDefault();
                 role.Name = Name;
                 role.Description = Description;
-                var personsWithRole = GlobalDataModel.Instance.Model.Persons.Where(x => x.RoleId == role.Id).Select(x => x.Id).ToList();
-                var positionsWithRole = StructureService.GetAllPositions().Where(x => personsWithRole.Contains(x.PersonId)).ToList();
-                foreach (var item in positionsWithRole)
-                {
-                    item.UpdateUi();
-                }
+                StructureService.UpdatePositionsWithRole(role.Id);
             }
 
             if (window != null)

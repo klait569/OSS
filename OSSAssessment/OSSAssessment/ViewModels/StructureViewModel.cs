@@ -5,7 +5,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace OSSAssessment.ViewModels
 {
@@ -163,7 +162,10 @@ namespace OSSAssessment.ViewModels
 
         private void ClearStructureAction(object data)
         {
-            Structures.Clear();
+            if (MessageBox.Show("Do you want delete whole structure?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Structures.Clear();
+            }
         }
 
         private void AddRootNodeAction(object data)

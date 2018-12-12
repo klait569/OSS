@@ -47,27 +47,5 @@ namespace OSSAssessment.DataLayer
                 SetProperty(ref address, value);
             }
         }
-
-        private Guid secret;
-
-        public Guid SecretFopPartner
-        {
-            get { return secret; }
-            set
-            {
-                SetProperty(ref secret, value);
-            }
-        }
-
-        private Guid secret2;
-
-        public Guid PartnerSecret
-        {
-            get { return secret2; }
-            set
-            {
-                SetProperty(ref secret2, value);
-            }
-        }
     }
 }

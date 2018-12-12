@@ -49,13 +49,17 @@ namespace OSSAssessment.Services
 
                     request.Headers.Add(Headers.REST_HEADER_NAME, System.Environment.MachineName);
                     var response = await client.SendAsync(request);
+                    DeviceModel device = DeviceService.GetDeviceByAddress(address);
                     if (response.StatusCode != System.Net.HttpStatusCode.OK)
                     {
-                        DeviceModel device = DeviceService.GetDeviceByAddress(address);
                         if (device != null)
                         {
                             device.Connected = false;
                         }
+                    }
+                    if (device != null)
+                    {
+                        device.Connected = true;
                     }
                     return true;
                 }
@@ -88,14 +92,18 @@ namespace OSSAssessment.Services
 
                     request.Headers.Add(Headers.REST_HEADER_NAME, System.Environment.MachineName);
                     var response = client.SendAsync(request).Result;
+                    DeviceModel device = DeviceService.GetDeviceByAddress(address);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var content = await response.Content.ReadAsStringAsync();
+                        if (device != null)
+                        {
+                            device.Connected = true;
+                        }
                         return content;
                     }
                     else
                     {
-                        DeviceModel device = DeviceService.GetDeviceByAddress(address);
                         if (device != null)
                         {
                             device.Connected = false;
@@ -133,15 +141,18 @@ namespace OSSAssessment.Services
 
                     request.Headers.Add(Headers.REST_HEADER_NAME, System.Environment.MachineName);
                     var response = await client.SendAsync(request);
-
+                    DeviceModel device = DeviceService.GetDeviceByAddress(address);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var deviceName = response.Headers.GetValues(Headers.REST_HEADER_NAME).First();
+                        if (device != null)
+                        {
+                            device.Connected = true;
+                        }
                         return deviceName;
                     }
                     else
                     {
-                        DeviceModel device = DeviceService.GetDeviceByAddress(address);
                         if (device != null)
                         {
                             device.Connected = false;

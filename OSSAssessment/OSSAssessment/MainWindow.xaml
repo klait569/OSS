@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:OSSAssessment"
         xmlns:Controls="clr-namespace:OSSAssessment.Controls" x:Class="OSSAssessment.MainWindow"
         mc:Ignorable="d"
-        Title="Organization structure service" Height="450" Width="800" MinHeight="300" MinWidth="500">
-
+        Title="Organization structure service" Height="450" Width="850" MinHeight="300" MinWidth="500">
     <DockPanel>
 
         <ToolBarTray DockPanel.Dock="Top" IsLocked="True" ToolBar.OverflowMode="Never">
@@ -29,19 +28,13 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" MinWidth="300"></ColumnDefinition>
+                <ColumnDefinition Width="3*" MinWidth="200"></ColumnDefinition>
                 <ColumnDefinition Width="5"></ColumnDefinition>
-                <ColumnDefinition Width="1*" MinWidth="200"></ColumnDefinition>
+                <ColumnDefinition Width="1*" MinWidth="150"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
             <Controls:StructureControl Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-
             <GridSplitter Grid.Column="1" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch"></GridSplitter>
-            
             <TabControl  Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <!--<TabItem Header="Structure">
-                <Controls:StructureControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0" />
-            </TabItem>-->
             <TabItem Header="Persons">
                 <Controls:PersonManagementControl />
             </TabItem>
@@ -53,6 +46,5 @@
             </TabItem>
         </TabControl>
         </Grid>
-        
     </DockPanel>
 </Window>
