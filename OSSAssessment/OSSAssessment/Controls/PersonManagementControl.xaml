@@ -40,7 +40,7 @@
                         <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Command="{Binding ElementName=PersonsListView, Path=DataContext.EditCommand}" CommandParameter="{Binding Id}">
-                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-edit-32.png"/>
+                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-edit-32.png" />
                                     </Button>
                                 </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -48,8 +48,8 @@
                     <GridViewColumn Width="60">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                    <Button  Command="{Binding ElementName=PersonsListView, Path=DataContext.DeleteCommand}" CommandParameter="{Binding Id}" >
-                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-remove-50.png"/>
+                                    <Button  Command="{Binding ElementName=PersonsListView, Path=DataContext.DeleteCommand}" CommandParameter="{Binding Id}">
+                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-remove-50.png" />
                                     </Button>
                                 </DataTemplate>
                         </GridViewColumn.CellTemplate>

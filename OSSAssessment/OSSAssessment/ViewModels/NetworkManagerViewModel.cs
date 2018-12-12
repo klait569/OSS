@@ -94,7 +94,7 @@ namespace OSSAssessment.ViewModels
             {
                 if (value)
                 {
-                    if(!Proxy.InitServer(port))
+                    if (!Proxy.InitServer(port))
                     {
                         MessageBox.Show("Can't initialize data sharing. Try another port.", "Sharing dissabled", MessageBoxButton.OK, MessageBoxImage.Warning);
                         value = false;
@@ -195,7 +195,7 @@ namespace OSSAssessment.ViewModels
         {
             var device = Devices.Select(x => x).Where(x => x.Id == (int)deviceId).FirstOrDefault();
             bool result = await RestService.SendDataAsync(device.Address);
-            if(!result)
+            if (!result)
             {
                 await Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => MessageBox.Show("Sending data to device " + device.Name + " failed.", "Connection failed", MessageBoxButton.OK, MessageBoxImage.Stop)));
             }

@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Button Content="Add role" Width="90" HorizontalAlignment="Right" Margin="5" Command="{Binding AddCommand}" />
         <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <ListView x:Name="RolesListView" ItemsSource="{Binding Roles}" VerticalAlignment="Stretch" >
+            <ListView x:Name="RolesListView" ItemsSource="{Binding Roles}" VerticalAlignment="Stretch">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -38,8 +38,8 @@
                         <GridViewColumn Width="60">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{Binding ElementName=RolesListView, Path=DataContext.EditCommand}" CommandParameter="{Binding Id}" >
-                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-edit-32.png"/>
+                                    <Button Command="{Binding ElementName=RolesListView, Path=DataContext.EditCommand}" CommandParameter="{Binding Id}">
+                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-edit-32.png" />
                                     </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -47,8 +47,8 @@
                         <GridViewColumn Width="60">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{Binding ElementName=RolesListView, Path=DataContext.DeleteCommand}" CommandParameter="{Binding Id}" >
-                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-remove-50.png"/>
+                                    <Button Command="{Binding ElementName=RolesListView, Path=DataContext.DeleteCommand}" CommandParameter="{Binding Id}">
+                                        <Image  Height="20" Width="20" Source="..\Resources\icons8-remove-50.png" />
                                     </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -57,5 +57,5 @@
                 </ListView.View>
             </ListView>
         </ScrollViewer>
-    </Grid>        
+    </Grid>
 </UserControl>

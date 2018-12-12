@@ -100,7 +100,7 @@ namespace OSSAssessment.ViewModels
                 person.UpdateUi();
                 foreach (var item in StructureService.GetAllPositions())
                 {
-                    if(item.PersonId == person.Id)
+                    if (item.PersonId == person.Id)
                     {
                         item.UpdateUi();
                     }

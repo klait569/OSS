@@ -10,9 +10,9 @@ namespace OSSAssessment.Services
         public delegate void ShowReceivedMessage(string m);
 
         public delegate void ShowStatus(string txt);
-        
+
         private HttpSelfHostServer _server;
-                
+
         public bool InitServer(string myport)
         {
             GlobalDataModel.Instance.Port = myport;

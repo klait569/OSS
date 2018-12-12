@@ -30,7 +30,7 @@ namespace OSSAssessment.ViewModels
             this.positionId = positionId;
             this.parentPositionId = parentPositionId;
             Persons.Clear();
-            
+
             if (positionId == 0)
             {
                 AddMode = true;
@@ -111,7 +111,7 @@ namespace OSSAssessment.ViewModels
                 SetProperty(ref selectedRole, value);
             }
         }
-        
+
         private bool structureMode = false;
 
         public bool StructureMode
@@ -122,7 +122,7 @@ namespace OSSAssessment.ViewModels
                 SetProperty(ref structureMode, value);
             }
         }
-        
+
         private bool addMode = false;
 
         public bool AddMode
@@ -142,7 +142,7 @@ namespace OSSAssessment.ViewModels
                 return result;
             }
         }
-        
+
         private string structureName;
 
         public string StructureName
@@ -231,7 +231,7 @@ namespace OSSAssessment.ViewModels
             }
             else
             {
-                if(StructureMode)
+                if (StructureMode)
                 {
                     var structure = GlobalDataModel.Instance.Model.Structures.Select(x => x).Where(x => x.RootPosition.Id == positionId).FirstOrDefault();
                     structure.Name = StructureName;
@@ -240,7 +240,7 @@ namespace OSSAssessment.ViewModels
                 var position = StructureService.GetPositionById(positionId);
                 position.Name = Name;
                 position.PersonId = SelectedPerson != null ? SelectedPerson.Id : 0;
-                if ((SelectedRole != null)&&(SelectedPerson != null))
+                if ((SelectedRole != null) && (SelectedPerson != null))
                 {
                     SelectedPerson.RoleId = SelectedRole.Id;
                 }

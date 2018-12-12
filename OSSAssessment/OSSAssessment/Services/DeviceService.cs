@@ -20,8 +20,6 @@ namespace OSSAssessment.Services
                     Name = name,
                     Connected = true
                 };
-                // test connection
-                //change guid
                 GlobalDataModel.Instance.Devices.Add(newDevice);
             }
             else

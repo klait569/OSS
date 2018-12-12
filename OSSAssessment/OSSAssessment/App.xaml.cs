@@ -22,14 +22,11 @@ namespace OSSAssessment
             }
         }
 
-        void AppDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        private void AppDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             //e.Handled = tr;
-            
 
             MessageBox.Show(e.Exception.Message, "Oops.. ", MessageBoxButton.OK, MessageBoxImage.Error);
-
-
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

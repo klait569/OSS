@@ -8,7 +8,7 @@
              Name="NodeDetailDialogWindow"
              Title="Node detail" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" /> 
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
     <StackPanel>
         <Grid>
@@ -43,7 +43,7 @@
             <Label Content="Position name" Margin="10,4,10,10" Grid.Row="2" />
             <Label Content="Person" Grid.Row="3" Margin="10,10" />
             <Label Content="Role" Grid.Row="4" Margin="10,10" />
-            <TextBox Grid.Column="1" Text="{Binding StructureName}" Margin="10,4,10,10" Grid.Row="1" Visibility="{Binding StructureMode, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBox Grid.Column="1" Text="{Binding StructureName}" Margin="10,4,10,10" Grid.Row="1" Visibility="{Binding StructureMode, Converter={StaticResource BooleanToVisibilityConverter}}" />
             <TextBox Grid.Column="1" Text="{Binding Name}" Margin="10,4,10,10" Grid.Row="2" />
             <ComboBox  Grid.Column="1" ItemsSource="{Binding Persons}" DisplayMemberPath="FullName" Grid.Row="3" Margin="10,10" SelectedItem="{Binding SelectedPerson}">
             </ComboBox>
@@ -52,9 +52,7 @@
             <Button Grid.Column="2" Grid.Row="3" Content="Unassign" Height="20" Margin="10,10,15,10" IsEnabled="{Binding IsAssignedPerson}" Command="{Binding UnassignPersonCommand}"></Button>
 
             <StackPanel Grid.Column="1" Grid.Row="5" Margin="10" Orientation="Horizontal">
-                
-                
-                
+
                 <Button Command="{Binding SaveCommand}"  CommandParameter="{Binding ElementName=NodeDetailDialogWindow}" Width="100" Margin="10">
                     <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">

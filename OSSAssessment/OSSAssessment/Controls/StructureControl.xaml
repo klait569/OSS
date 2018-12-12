@@ -10,8 +10,8 @@
              Name="MyStructureControl">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -20,18 +20,18 @@
                   ItemsSource="{Binding Structures}" SelectedItem="{Binding SelectedNode, Mode=TwoWay}">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type data:Structure}" ItemsSource="{Binding RootPosition.SubPositions}">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" >
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
                         <TextBlock Text="{Binding Name}" FontWeight="Bold" />
                         <TextBlock Text="{Binding RootPosition.Name}" HorizontalAlignment="Center" />
                         <TextBlock Text="{Binding RootPosition.PersonFullName}" HorizontalAlignment="Center" />
-                        <TextBlock Text="{Binding RootPosition.PersonRole}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding RootPosition.PersonRole}" HorizontalAlignment="Center" />
                     </StackPanel>
                 </HierarchicalDataTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type data:Position}" ItemsSource="{Binding SubPositions}">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding PersonFullName}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding PersonRole}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" />
+                        <TextBlock Text="{Binding PersonFullName}" HorizontalAlignment="Center" />
+                        <TextBlock Text="{Binding PersonRole}" HorizontalAlignment="Center" />
                     </StackPanel>
                 </HierarchicalDataTemplate>
             </TreeView.Resources>
@@ -42,11 +42,16 @@
             </TreeView.ItemsPanel>
         </local:MyTreeView>
         <StackPanel Grid.Column="1" Orientation="Vertical">
-            <Button Content="Add root node" Margin="5" Command="{Binding AddRootNodeCommand}" />
+            <Button Margin="5" Command="{Binding AddRootNodeCommand}" >
+                <TextBlock Text="Add root node" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
             <Button Content="Add node" Margin="5" Command="{Binding AddNodeCommand}" IsEnabled="{Binding IsSelectedNode}" />
-            <Button Content="Delete node" Margin="5" Command="{Binding DeleteNodeCommand}" IsEnabled="{Binding IsSelectedNode}"/>
-            <Button Content="Edit node" Margin="5" Command="{Binding EditNodeCommand}" IsEnabled="{Binding IsSelectedNode}"/>
-            <Button Content="Clear whole structure" Margin="5" Command="{Binding ClearStructureCommand}"  IsEnabled="{Binding IsSelectedNode}"></Button>
+            <Button Content="Delete node" Margin="5" Command="{Binding DeleteNodeCommand}" IsEnabled="{Binding IsSelectedNode}" />
+            <Button Content="Edit node" Margin="5" Command="{Binding EditNodeCommand}" IsEnabled="{Binding IsSelectedNode}" />
+            <Button Margin="5" Command="{Binding ClearStructureCommand}" >
+                <TextBlock Text="Clear whole structure" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+
         </StackPanel>
     </Grid>
 </UserControl>

@@ -10,7 +10,6 @@ namespace OSSAssessment.ViewModels
 {
     internal class PersonManagementViewModel : BindableBase
     {
-
         public PersonManagementViewModel()
         {
             GlobalDataModel.Instance.Model.PropertyChanged += Model_PropertyChanged;

@@ -76,8 +76,8 @@
                     <GridViewColumn Width="60">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding ElementName=DevicesListView, Path=DataContext.RemoveCommand}" CommandParameter="{Binding Id}" >
-                                    <Image Height="20" Width="20" Source="..\Resources\icons8-remove-50.png"/>
+                                <Button Command="{Binding ElementName=DevicesListView, Path=DataContext.RemoveCommand}" CommandParameter="{Binding Id}">
+                                    <Image Height="20" Width="20" Source="..\Resources\icons8-remove-50.png" />
                                 </Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
